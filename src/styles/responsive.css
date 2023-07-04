@@ -1,0 +1,23 @@
+
+@media only screen and (max-width: 750px) {
+   .display{
+    flex-direction: column;
+   
+   >.first{
+    height: fit-content;
+    width: auto;
+    background: rgba(0, 0, 0, 0.5);
+
+    >div{
+        display: none;
+    }
+    >main>h1{
+        display: none;
+    }
+
+   }
+   >.second{
+    height: 13cm;
+   }
+}
+}
