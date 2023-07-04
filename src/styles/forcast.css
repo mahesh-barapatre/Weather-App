@@ -41,12 +41,12 @@ h1{
 .srcBar{
     display: flex;
 
-    >input{
-        border-style: none;
-        padding: 2%;
-        background-color: rgba(0, 0, 0, 0.25);
-        
-    }
+}
+.srcBar>input{
+    border-style: none;
+    padding: 2%;
+    background-color: rgba(0, 0, 0, 0.25);
+    
 }
 
 #not_found{
