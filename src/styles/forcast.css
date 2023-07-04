@@ -2,8 +2,9 @@
 
     display: flex;
     height: 13cm;
+}
 
-    >.first{
+    .first{
         background-image: url(../assets/HAZE.jpg);
         background-size: 100% 100%;
         display: flex;
@@ -11,17 +12,17 @@
         justify-content: space-between;
         padding: 3%;
         width: 10cm;
-
-        >div{
+    }
+        .first>div{
             text-align: end;
         }
-        >main{
+        .first>main{
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-    }
-    >.second{
+    
+    .second{
         background: rgba(0, 0, 0, 0.5);
         backface-visibility: .5;
         text-align: center;
@@ -29,19 +30,10 @@
         flex-direction: column;
         justify-content: space-evenly;
         padding: .75cm;
-
-        .info{
-            display: flex;
-            justify-content: space-between;
-            border-color: rgb(255, 255, 255);
-            border-style: solid;
-            padding-bottom: .4cm;
-            border-width: 0 0 1px 0;
-        }
-        
+     
     }
 
-}
+
 h1{
     font-size: 1cm;
 }
@@ -63,4 +55,24 @@ h1{
     >h2{
         margin-bottom: 1cm;
     }
+}
+
+.info{
+    display: flex;
+    justify-content: space-between;
+    border-color: rgb(255, 255, 255);
+    border-style: solid;
+    padding-bottom: .4cm;
+    border-width: 0 0 1px 0;
+}
+
+.temp{
+    height: 1.75cm;
+    width: 1.75cm;
+}
+
+#condition{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

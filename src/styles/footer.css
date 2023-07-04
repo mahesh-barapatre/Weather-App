@@ -1,0 +1,8 @@
+#footer{
+    display: inline;
+    background-color: rgb(0, 0, 0, 0.5);
+    text-align: end;
+    position: relative;
+    top: 1cm;
+    left: 100%;
+}

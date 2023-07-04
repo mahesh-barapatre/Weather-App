@@ -19,6 +19,7 @@ function Forcast() {
             }&units=metric&APPID=${apiKeys.key}`
           )
           .then((response) => {
+            // console.log(response.data)
             setWeather(response.data);
             setQuery("");
           })
@@ -41,7 +42,7 @@ useEffect(() => {
     }
     
     return (
-        weather.weather ? (
+        weather.weather ? (          
         <div className="display">
             <div className="first">
                 <div >
@@ -53,11 +54,17 @@ useEffect(() => {
                 <DateTime />
                 </div>
                 <h1>{Math.round(weather.main.temp)}°C</h1>
-                </main>
-
+                </main>                
             </div>
             <div className="second">
+                <div id="condition">
                 <h1>{weather.weather[0].main}</h1>
+                <img
+                    className="temp"
+                    src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
+                />
+
+                </div>
                 <main className='srcBar'>
                 <input
             type="text"
@@ -111,6 +118,7 @@ useEffect(() => {
                     />
                 </main>
                     <h3>*try another location</h3>
+                    
     </div>
     ) 
         
