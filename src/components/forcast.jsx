@@ -5,6 +5,9 @@ import DateTime from './date-time';
 
 import SearchIcon from '@mui/icons-material/Search';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function Forcast() {
 
     const [query, setQuery]=useState('')
@@ -22,12 +25,22 @@ function Forcast() {
             // console.log(response.data)
             setWeather(response.data);
             setQuery("");
+            toast.success('DATA fetched!', {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                });
           })
           .catch(function (error) {
             console.log(error)
             setWeather("");
             setQuery("");
-            setError({ message: "Not Found", query: query });            
+            setError({ message: "Not Found", query: query });
           });
       };
 
@@ -63,7 +76,18 @@ useEffect(() => {
                     className="temp"
                     src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
                 />
-
+                    <ToastContainer
+                    position="top-right"
+                    autoClose={1000}
+                    hideProgressBar
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="dark"
+                    />                                
                 </div>
                 <main className='srcBar'>
                 <input
@@ -102,9 +126,11 @@ useEffect(() => {
         </div>
     )
     :
+    
     <div id='not_found'>
     <h1>{error.query} {error.message} </h1>
     <h2>ERROR 404!</h2>
+
     <main className='srcBar'>
                 <input
             type="text"
