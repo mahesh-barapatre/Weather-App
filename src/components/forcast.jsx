@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, {useState , useEffect } from 'react'
 import apiKeys from './apiKeys';
 import DateTime from './date-time';
+import city from '../data/cities.js'
 
 import SearchIcon from '@mui/icons-material/Search';
 
@@ -9,10 +10,19 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function Forcast() {
+    
 
+    const [options, setOptions] = useState([]);
     const [query, setQuery]=useState('')
     const [error, setError]=useState('')
     const [weather, setWeather]=useState({})
+
+    let handleChanges=(e)=>{
+        setQuery(e.target.value)
+
+        //logic for suggestions
+        setOptions(city.filter((city)=>city.toLowerCase().includes(query.toLowerCase())));
+    }
 
     const search = (city) => {
         axios
@@ -91,11 +101,18 @@ useEffect(() => {
                 </div>
                 <main className='srcBar'>
                 <input
+                list='cities'
             type="text"
             placeholder="Search any city"
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={handleChanges}
             value={query}
           />
+          {/* options suggestions */}
+        <datalist id='cities'>
+            {options.map((option, index) => (
+            <option key={index} value={option}/>
+            ))}
+        </datalist>
                 <SearchIcon 
                     style={styleOfIcon}
                     onClick={()=>search(query)}
@@ -133,11 +150,18 @@ useEffect(() => {
 
     <main className='srcBar'>
                 <input
+                list='cities'
             type="text"
             placeholder="Search any city"
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={handleChanges}
             value={query}
             />
+            {/* options suggestions */}
+        <datalist id='cities'>
+            {options.map((option, index) => (
+            <option key={index} value={option}/>
+            ))}
+        </datalist>
                 <SearchIcon 
                     style={styleOfIcon}
                     onClick={()=>search(query)}
